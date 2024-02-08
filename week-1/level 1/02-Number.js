@@ -1,15 +1,15 @@
-// function explainParseInt(value)
-// {
-//     console.log("Original value :" , value);
-//     let result = parseInt(value);
-//     console.log("After PartInt : " , result);
-// }
+ function explainParseInt(value)
+ {
+     console.log("Original value :" , value);
+     let result = parseInt(value);
+     console.log("After PartInt : " , result);
+ }
 
-// explainParseInt("42");
-// explainParseInt("42px");
-// explainParseInt("42.546");
-//        // OR
-//  console.log(parseInt("42px5"));
+ explainParseInt("42");
+ explainParseInt("42px");
+ explainParseInt("42.546");
+        // OR
+  console.log(parseInt("42px5"));
 
 
 function explainParseFloat(value) {

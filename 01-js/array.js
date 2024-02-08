@@ -35,3 +35,4 @@ for(let i = 0; i<arrayOfObject.length; i++)
         console.log("She is a Female.")
     }
 }
+
