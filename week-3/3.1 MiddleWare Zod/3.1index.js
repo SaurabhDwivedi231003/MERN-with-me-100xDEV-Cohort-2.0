@@ -1,4 +1,4 @@
-// Chapter: Middleware
+// Chapter: Middleware , actual middleware is in 3.2index.js
 
 // Middleware is a function that has access to the request object (req), the response object (res), 
 // and the next function in the application’s request-response cycle. The next function is a function 

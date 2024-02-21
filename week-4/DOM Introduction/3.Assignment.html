@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ASSIGNMENT</title>
+</head>
+<style>
+    body {
+        background-color: #DCDCDC;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 250px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #30cbac;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 2, 5, 0.1);
+    }
+    .insideInpute {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #236058;
+        border-radius: 5px;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    input[type="text"] {
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #0c786a;
+        border-radius: 5px;
+        background-color: #B7B6B5; /* Add this line to set the background color to white */
+    }
+
+    #finalInterest {
+        margin-top: 20px;
+        text-align: center;
+    }
+</style>
+<body>
+    
+    <div class="insideInput">
+
+        <input oninput="CalculateInterest()" id="principle" type="text" placeholder="principle"> <br><br>
+        <input oninput="CalculateInterest()" id="rate" type="text" placeholder="rate"> <br><br>
+        <input oninput="CalculateInterest()" id="time" type="text" placeholder="time"> 
+        <div id="finalInterest"></div>
+    </div>
+
+</body>
+<script>
+        function CalculateInterest(){
+            const principle = document.getElementById('principle').value;
+            const rate = document.getElementById('rate').value;
+            const time = document.getElementById('time').value;
+            const data = fetch("https://sum-server.100xdevs.com/interest?principal=" + principle + "&rate=" + rate + "&time=" + time)
+            .then(function(response){
+                response.text().then(function(answer){
+                    document.getElementById('finalInterest').innerHTML = `<h1> The Interest is : ${answer}  </h1>`;
+                })
+            })
+        }
+</script>
+</html>
+
+
+<!-- https://sum-server.100xdevs.com/interest?principal=100&rate=5&time=2 -->

@@ -1,5 +1,5 @@
 // Chapter: Middleware
-e
+
 const express = require('express');
 const app = express();
 
@@ -30,8 +30,8 @@ app.post("/health-checkup" , calculateRequests, function(req , res){
 // However, if we want to apply the middleware function to all routes, we can use `app.use()`.
 // The `app.use(calculateRequests)` line applies the `calculateRequests` middleware function to all routes.
 
-// Apply the `calculateRequests` middleware function to all routes
-app.use(calculateRequests);
+app.use(calculateRequests);  // iska mtlb hai ki har request pe ye middleware chalega
+
 // app.use(express.json());   // express.json(): This is a built-in middleware function in Express. It parses incoming requests with JSON payloads and is based on body-parser.
 
 // Define a GET route for "/health-checkup"

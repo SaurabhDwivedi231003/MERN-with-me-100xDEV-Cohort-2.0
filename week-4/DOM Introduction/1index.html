@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<style>
+    #finalSum{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 35px;
+        flex-direction: column;
+        background: #675252;
+        color: #CAC6C6;
+    }
+</style>
+<body>
+    <input id="firstNumber" type="text" placeholder="First Number"> 
+    <!-- <input oninput="populateDiv()" id="firstNumber" type="text" placeholder="First Number">  -->
+     <!-- oninput="populateDiv()" - this will call the function populateDiv() when the input field is changed without pressing enter or clicking outside the input field -->
+    <br><br>
+    <input id="secondNumber" type="text" placeholder="Second Number">
+    <br><br>
+
+    <button onClick="populateDiv()"> Calculate Sum</button>
+    <div id="finalSum"></div>
+</body>
+<script>
+    function populateDiv(){
+        const firstNumber = document.getElementById('firstNumber').value;
+        const secondNumber = document.getElementById('secondNumber').value;
+        const element = document.getElementById('finalSum');
+        const sum = parseInt(firstNumber) + parseInt(secondNumber); 
+        // const sum = Number(firstNumber) + Number(secondNumber);  // another way to convert string to number
+        element.innerHTML = `<h1> The Sum is : ${sum}  </h1>`;
+
+        // parseInt() - converts a string to an integer
+    }
+</script>
+</html>
+
+<!--Above is a simple assignement to get started with DOM ,  -->
+<!-- Task Done : Created a page that add two numbers and return the sum -->

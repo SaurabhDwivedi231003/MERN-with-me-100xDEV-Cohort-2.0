@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <input oninput="debouncePopulateDiv()" id="firstNumber" type="text" placeholder="First Number"> 
+    <br><br>
+    <input oninput="debouncePopulateDiv()" id="secondNumber" type="text" placeholder="Second Number">
+    <br><br>
+
+    <!-- <button onClick="populateDiv()"> Calculate Sum</button> -->
+    <div id="finalSum"></div>
+</body>
+
+<script>
+    // Throttling : it is a way to delay function call , so that it does not call the function multiple times in a short period of time.
+    // Debounce : it is a way to delay function call , so that it does not call the function multiple times in a short period of time.
+    //  To save unnecessary calls to the server, we can use debounce to delay the function call.
+    let timeOut;
+    function debouncePopulateDiv(){
+        
+        clearTimeout(timeOut);
+        timeOut = setTimeout(() => {
+            populateDiv();
+        }, 1000);
+
+    }
+
+    function populateDiv(){
+        const firstNumber = document.getElementById('firstNumber').value;
+        const secondNumber = document.getElementById('secondNumber').value; 
+        const data = fetch("https://sum-server.100xdevs.com/sum?a=" + firstNumber + "&b=" + secondNumber)
+        .then(function(response){
+            response.text().then(function(answer){
+                document.getElementById('finalSum').innerHTML = `<h1> The Sum is : ${answer}  </h1>`;
+            })
+        })
+    }
+
+    // another way to do the same thing
+     // we use AXIOS library to make the request more readable & easy
+    async function populateDiv2(){
+        const firstNumber = document.getElementById('firstNumber').value;
+        const secondNumber = document.getElementById('secondNumber').value;
+        
+        const response = await fetch("https://sum-server.100xdevs.com/sum?a=" + firstNumber + "&b=" + secondNumber)
+        const ans = await response.text();
+        document.getElementById('finalSum').innerHTML = `<h1> The Sum is : ${ans}  </h1>`;
+    }
+
+</script>
+</html>
