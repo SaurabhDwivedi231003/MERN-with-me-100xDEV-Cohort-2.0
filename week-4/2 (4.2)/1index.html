@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input id="title" type="text" placeholder="Title"> <br> <br>
+        <input id="description" type="text" placeholder="Description"> <br> <br>
+        <button onClick="addTodo()"> ADD TODO </button>
+    </div>
+
+    <div id="container">
+        <!-- <div>
+            <div>Todo 1</div> 
+            <div>Todo 1 Description</div>
+            <button>Mark as Done</button> 
+        </div> -->
+    </div>
+
+
+    <!-- we will underStand : High level DOM API
+        1. createElement
+        2. appendChild
+        3. setAttribute
+        4. element.children
+        
+    -->
+    
+    <script>
+
+        function markDone(todoId) {
+            const parent = document.getElementById(todoId);
+            parent.children[2].innerHTML = "Done";    // the third child is the button, so we are changing the button text to Done, and it is 0 indexed.
+        }
+        
+        // important to understand the below function
+        function createChild(title , description , id) {
+           const child = document.createElement("div");
+           const firstGrandChild = document.createElement("div");
+              firstGrandChild.innerHTML = title;
+           const secondGrandChild = document.createElement("div");
+              secondGrandChild.innerHTML = description;
+           const thirdGrandChild = document.createElement("button");
+              thirdGrandChild.innerHTML = "Mark as Done";
+              thirdGrandChild.setAttribute("onClick" , `markDone(${id})`);    // this is way of calling function in the child element with parameter.
+               
+           child.appendChild(firstGrandChild);   // this is how we add firstGrandChild to the child element
+           child.appendChild(secondGrandChild); 
+           child.appendChild(thirdGrandChild);
+           
+           child.setAttribute("id" , id);  // this is how we add id to the child element
+              return child;         
+        }
+
+        
+        let globalId = 0;
+        function addTodo() {
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+
+            // document.getElementById("container").innerHTML += `
+            //     <div>
+            //         <div>${title}</div> 
+            //         <div>${description}</div>
+            //         <button>Mark as Done</button> 
+            //     </div>`;
+
+            // Above can be achievd using createElement and appendChild.
+
+            const parent = document.getElementById("container");
+            parent.appendChild(createChild(title , description , globalId++));   // jo bhi ayega child k form me ayega and will be appended to the parent i.e. container.
+
+            // lets understand the above code
+            // Conatiner is the parent div, we are creating a new div and adding the title to it.
+            // Container is Parent > childDiv is child > title is grandchild
+            // Now we need 2 more divs for description and button
+        }
+    </script>
+</body>
+</html>
+
+// 37 : 00
