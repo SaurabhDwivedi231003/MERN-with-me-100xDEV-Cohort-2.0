@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <button onClick="onButtonPress()" id="btn">Counter 0</button>
+</body>
+<script>
+    function onButtonPress() {
+         const currentValue = document.getElementById('btn').innerText.split(' ')[1];
+         document.getElementById('btn').innerText = `Counter ${parseInt(currentValue) + 1}`;
+
+        // or
+
+        // const currentValue = document.getElementById('btn').innerHTML;
+        // const counter = currentValue.split(' ')[1];
+        // const newCounter = parseInt(counter) + 1;
+        // document.getElementById('btn').innerHTML = `Counter ${newCounter}`;
+
+    }
+</script>
+</html>
