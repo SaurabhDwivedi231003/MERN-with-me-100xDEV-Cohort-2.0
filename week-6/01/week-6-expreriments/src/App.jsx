@@ -3,26 +3,39 @@ import './App.css';
 import Header1 from './components/Header1';
 import Header2 from './components/Header2';
 
+// Recat Memoization : https://react.dev/reference/react/memo
+
 function App() {
- 
+  const [title, setTitle] = useState('Saurabh');
+  const [title2, setTitle2] = useState('Seenu');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const array =["seenu" , "bunny" , "lalu" ,"tonu" , "gullu" , "piggu" ,"Bannu"];
+
+  function updateTitle() { 
+    setTitle(Math.random().toString());
+  }
+
+  function setOtherName(){
+    setTitle2(array[currentIndex]);
+    setCurrentIndex((currentIndex + 1) % array.length);
+  }
+
   return (
-    <div>
-      <Header1 />  
-      <Header2/>
-    </div>
+    <>
+      <button onClick={updateTitle}>Update the Title with random no : </button>
+      <Header1 title={title} />
+      <br />
+      <button onClick={setOtherName}>Update the Title setOtherName : </button>
+      <Header2 title2={title2}/>
+      <Header2 title2="Hello1"/>
+      <Header2 title2="Hello2"/>
+      <Header2 title2="Hello3"/>
+      <Header2 title2="Hello4"/>
+    </>
   )
 }
 
-/*
- Push down state to avoid rerenders
-  - Changes on parent will rerender parent and will affect child components as well.
-  - Changes on child will rerender child only.
-
- Solution : 
-  - 1.0 : Push down state to avoid rerenders (child component me hi state define kro aur wahi use kro) 
-  - 2.0 : Use React.memo to avoid rerenders (child component ko React.memo ke sath wrap kro)
-          React Memoization : React.memo means that the component will not re-render if the props are the same.
-          Agar props change nahi hote to component re-render nahi hoga.
-*/
+// start from  44 : 00
 
 export default App;

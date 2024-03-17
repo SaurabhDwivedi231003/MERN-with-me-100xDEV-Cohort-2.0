@@ -1,17 +1,12 @@
-import React from 'react'
-import {useState} from 'react';
+import React from 'react';
 
-function Header1() {
-    const [title, setTitle] = useState('Saurabh');
+//using react Memoization
 
-    function updateTitle() {
-        setTitle(Math.random().toString());
-    }
+const Header1 = React.memo(function Header1({title}){
 
-    return <> 
-    < button onClick = { updateTitle } > Update the Title with random no : </button>
-    <h3>My Name is {title}</h3>
-    </>
-  }
+    return <>
+        <h1>My Name is {title}</h1>
+      </>
+  })
 
-  export default Header1
+export default Header1;
