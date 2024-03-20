@@ -1,58 +1,30 @@
 import React, {useState} from 'react';
 import './App.css';
-import Todo from './components/Todo';
+import CardWrapper from './components/CardWrapper';
+import TextComponent from './components/TextComponent';
+
+// Now we will see : How to render component as a prop { jaise title as a prop bhjte the yaha pe ek component ko hi as prop bhjege}
 
 function App() {
-    const [todos, setTodos] = useState([
-        {
-            id: 1,
-            title: 'Todo 1',
-            description: 'Description 1'
-        }, {
-            id: 2,
-            title: 'Todo 2',
-            description: 'Description 2'
-        }, {
-            id: 3,
-            title: 'Todo 3',
-            description: 'Description 3'
-        }
-    ]);
-
-    const [counter, setCounter] = useState(4);
-
-    function addTodo() {
-        setTodos([
-            ...todos, {
-                id: counter,
-                title: 'New Todo added',
-                description: 'New Description added'
-            }
-        ]);
-        setCounter(counter + 1);
-    }
-
     return (
         <div>
-            <button onClick={addTodo}>Add Todo</button>
-            {
-                todos.map(
-                  todo => <Todo id={todo.id} title={todo.title} description={todo.description} key={todo.id} />
-                )
-            }
+           <CardWrapper innerComponent={<TextComponent/>}/>
+           <CardWrapper innerComponent={<TextComponent/>}/>
         </div>
     );
 }
 
-export default App;
+// function CardWrapper({innerComponent}) {
+//     return <div style={{ border : "2px solid black" , padding: "10px" , margin:"20px" }}>
+//         {innerComponent}
+//       </div>
+//   }
+  
+// function TextComponent(){
+//   return <div>
+//        <h1> Hello </h1>
+//     </div>
+// }
 
-  //   function addTodo() {
-  //     const newTodo = [];
-  //     for (let i = 0; i < todos.length; i++) {
-  //         newTodo.push(todos[i]);
-  //     }
-  //     newTodo.push(
-  //         {id: Math.random(), title: 'Todo 4', description: 'Description 4'}
-  //     );
-  //     setTodos(newTodo);
-  // }
+
+export default App;
