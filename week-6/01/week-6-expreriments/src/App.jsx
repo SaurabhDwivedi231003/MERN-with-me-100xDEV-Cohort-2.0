@@ -3,7 +3,7 @@ import './App.css';
 import Header1 from './components/Header1';
 import Header2 from './components/Header2';
 
-// Recat Memoization : https://react.dev/reference/react/memo
+//  Recat Memoization : https://react.dev/reference/react/memo
 
 function App() {
   const [title, setTitle] = useState('Saurabh');
@@ -29,13 +29,11 @@ function App() {
       <button onClick={setOtherName}>Update the Title setOtherName : </button>
       <Header2 title2={title2}/>
       <Header2 title2="Hello1"/>
-      <Header2 title2="Hello2"/>
-      <Header2 title2="Hello3"/>
-      <Header2 title2="Hello4"/>
+      
     </>
   )
 }
 
-// start from  44 : 00
+// start from  46 : 00
 
 export default App;
