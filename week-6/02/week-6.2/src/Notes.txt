@@ -13,4 +13,8 @@
    -> useCallback : It is used to remember a function and not create it again and again.
                 It is used to memoize function which can help in optimizing the performance of the application , specially in cases of involving child components
                 that rely on reference equality to prevent unnecessary renders.             
+
+   -> Custom Hooks : hooks that can be customised as per our convinience or self made hooks.
+   
 */ 
+

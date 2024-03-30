@@ -1,94 +1,44 @@
-import { useEffect, useMemo, useState , memo, useCallback } from 'react';
+import {useEffect, useMemo, useState, memo, useCallback} from 'react';
 import './App.css';
+import axios from 'axios';
 
-/* useCallback : used to avoid rerender for refrencial things */
-/* make functions a variable , wrapped inside useCallback */
-/* Memo use hoga useCallback k sath*/
+  function useTodos(){    // 'use' keyword is important
+    const [todos , setTodos] = useState([]);
+  
+    useEffect(()=>{
+      axios.get("")
+      .then((res)=>{ setTodos(res.data.todos)})
+    } ,[]);
+  
+    return todos;
+    }
+
+    /* Why is it important to make custome hook ?
+      -> if we make all the hooks inside App() then code becomes confusing.
+      
+      why can't we wrap it using normal function ?
+      -> useState or any other hooks can be wrapped inside normal function so it is important to use it on the same function where declared
+        or make custome hooks and use it anywhere
+    */
+  
 
 function App() {
+  // const [todos , setTodos] = useState([]);
+  // useEffect(()=>{
+  //   axios.get("")
+  //   .then((res)=>{ setTodos(res.data.todos)})
+  // } ,[])
+  
+  /* All above can be done inside a custom hook*/
 
-const [counter , setCounter] = useState(0);
+    const todos = useTodos();
 
-//  function inputFunction(){
-//       console.log("Child Clicked");
-//   }
-
-/* Memo : lets you skip rerendering a component when its props are unchanged */
-// But yha pe fir bhi child rerender ho rha h , why??
-// Beacause : 
-/*
-    function inputFunction1(){ console.log("Hi")}
-    function inputFunction2(){ console.log("Hi")}
-
-    inputFunction == inputFunction2 , javascript returns false even if their body their content is same.
-    and since it consider them as diffrent function it RE-RENDERS.
-    To avoid this , we use : useCallback
-*/
-
-/* writing inputFunction() : same function in this way */
-const inputFunction = useCallback(()=>{
-      console.log("Child Clicked")
-},[])    // Again this is a depedency array , depends on conditions on which we want it to allow for rerendering
-
-
-
-return (
+    return (
     <>
-     <button onClick={()=> {setCounter(counter+1)}}> Counter : {counter}</button>
-     <Child inputFunction={inputFunction}/>
+      {todos}
     </>
   );
 }
 
-const Child = memo(({inputFunction}) => {
-      console.log("Child renders")
-
-      return <>
-            <button onClick={inputFunction}>Button Clicked</button>
-      </>
-});
-
 
 export default App;
-
-
-
-/* Memo : lets you skip rerendering a component when its props are unchanged */
-// But yha pe fir bhi child rerender ho rha h , why??
-// Beacause : 
-/*
-    function inputFunction1(){ console.log("Hi")}
-    function inputFunction2(){ console.log("Hi")}
-
-    inputFunction == inputFunction2 , javascript returns false even if their body their content is same.
-    and since it consider them as diffrent function it RE-RENDERS.
-    To avoid this , we use : useCallback
-*/
-
-
-// function App() {
-
-// const [counter , setCounter] = useState(0);
-
-// function logSomething(){
-//     console.log("Child Clicked");
-// }
-
-// return (
-//     <>
-//      <button onClick={()=> {setCounter(counter+1)}}> Counter : {counter}</button>
-//      <Child inputFunction={logSomething}/>
-//     </>
-//   );
-// }
-
-// const Child = memo(({inputFunction}) => {
-//       console.log("Child renders")
-
-//       return <>
-//             <button onClick={inputFunction}>Button Clicked</button>
-//       </>
-// });
-
-
-// export default App;
