@@ -1,0 +1,12 @@
+/*
+      Read Notes.txt file for more information
+==>> Side Effect : are operations that can affect components or cant/shouldn't be done during rerendering
+                such as fech, setInterval, setTimeout, setInterval, addEventListener, removeEventListener
+
+==>> Hooks : useState , useEffect, useMemo, useCallback, useRef , useContext
+
+   -> useState : used untill we dont need side effect example : need to connect with backend or setInterval kind thing are not introduced
+   -> useEffect : used to do side effect like fetch, setInterval, setTimeout, addEventListener, removeEventListener
+                serve as componentDidMount, componentDidUpdate, componentWillUnmount of class based component.
+   -> useMemo : 
+*/
