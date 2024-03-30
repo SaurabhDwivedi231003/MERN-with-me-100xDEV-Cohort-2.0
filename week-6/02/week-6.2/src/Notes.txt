@@ -10,4 +10,7 @@
                 serve as componentDidMount, componentDidUpdate, componentWillUnmount of class based component.
    -> useMemo : It means remembring some output given an input and not computing it again , like caching.
                 pehle se hi output store karke rakhta hai, agar input same hai toh wahi output return karta hai.
+   -> useCallback : It is used to remember a function and not create it again and again.
+                It is used to memoize function which can help in optimizing the performance of the application , specially in cases of involving child components
+                that rely on reference equality to prevent unnecessary renders.             
 */ 
