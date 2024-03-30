@@ -5,7 +5,7 @@ import Todos from './components/Todos';
 
 function App() {
   const [todos, setTodos] = useState([]);
-
+   
   useEffect(() => {
     fetch("http://localhost:3000/todos")
       .then(async function(res){
@@ -15,7 +15,7 @@ function App() {
   }, []); // Empty dependency array means this effect will only run once, when the component mounts
 
   return (
-    <div>
+    <div> 
       <CreateTodo/>
       <Todos todos={todos}/>
     </div>

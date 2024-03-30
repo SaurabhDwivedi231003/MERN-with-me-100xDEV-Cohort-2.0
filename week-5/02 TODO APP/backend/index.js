@@ -24,10 +24,10 @@ app.post('/todo' , async (req, res) => {
     res.json({ msg : "Todo created successfully "})
     });   
 
-app.get("/todos" , async (req, res) => {
+app.get("/todos" , async (req, res) => { 
     const todos = await todo.find({});
     res.json({ todos });
-})
+})   
 
 app.put("/completed", async (req, res) => {
     const updatePayload = req.body;
@@ -43,9 +43,19 @@ app.put("/completed", async (req, res) => {
     });
     res.json({ msg : "Todo updated successfully "})
 })
+app.get("/todos/:id", async (req, res) => {
+    const todoId = req.params.id; // Extract the todo ID from the request params
+    const todoItem = await todo.findById(todoId);
+    if (!todoItem) {
+        return res.status(404).json({ error: "Todo not found" });
+    }
+    res.json(todoItem);
+});
+
   
 
 app.listen(port, () => {
     console.log(`Server listening at port : ${port}`);
 }); 
 
+   
