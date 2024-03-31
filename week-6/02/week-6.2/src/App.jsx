@@ -1,44 +1,44 @@
-import {useEffect, useMemo, useState, memo, useCallback} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import './App.css';
-import axios from 'axios';
 
-  function useTodos(){    // 'use' keyword is important
-    const [todos , setTodos] = useState([]);
-  
-    useEffect(()=>{
-      axios.get("")
-      .then((res)=>{ setTodos(res.data.todos)})
-    } ,[]);
-  
-    return todos;
-    }
+/*  useRef : overriding the already presenet thing into certain DOM elements */
 
-    /* Why is it important to make custome hook ?
-      -> if we make all the hooks inside App() then code becomes confusing.
-      
-      why can't we wrap it using normal function ?
-      -> useState or any other hooks can be wrapped inside normal function so it is important to use it on the same function where declared
-        or make custome hooks and use it anywhere
-    */
-  
 
 function App() {
-  // const [todos , setTodos] = useState([]);
-  // useEffect(()=>{
-  //   axios.get("")
-  //   .then((res)=>{ setTodos(res.data.todos)})
-  // } ,[])
-  
-  /* All above can be done inside a custom hook*/
 
-    const todos = useTodos();
+      /* in the output firstly it would show '2000' , after 2 second it will become '18' */  
+    const [incomeTax, setIncomeTax] = useState(2000);
+    const divRef = useRef();
 
+    useEffect(()=>{
+        setTimeout(()=>{
+              divRef.current.innerHTML = 18;
+        },3000)
+    },[])
     return (
     <>
-      {todos}
+        Your income tax return are <div ref={divRef}>{incomeTax}</div>
     </>
   );
 }
 
+/*   //Normal way of doing this but not an effetive approach.
+function App() {
+
+    const [incomeTax, setIncomeTax] = useState(2000);
+
+    useEffect(()=>{
+        setTimeout(()=>{
+              document.getElementById('incomeTaxContainer').innerHTML = 18;
+        },5000)
+    },[])
+    return (
+    <>
+        Your income tax return are <div id="incomeTaxContainer">{incomeTax}</div>
+    </>
+  );
+}
+
+*/
 
 export default App;

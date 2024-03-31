@@ -15,6 +15,10 @@
                 that rely on reference equality to prevent unnecessary renders.             
 
    -> Custom Hooks : hooks that can be customised as per our convinience or self made hooks.
+
+   -> useRef  : overriding the existing DOM element. React koi bhi output de rha dosent matter ,hm chahte hain ki ye specefic cheez show hon.
+                isko krne ka jo better tareeka h wo useRef se h , waise chahe toh document.getElementById se b ho skta h but this is cleaner and better one.
+
    
 */ 
 
