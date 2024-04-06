@@ -29,7 +29,7 @@ JARGONS :
 
 
 
-JUST TO KNOW : 
+JUST TO KNOW : for ROUTE.
 
 // <link></link>    : can also be used for routing but it will only works when user clicks.
     

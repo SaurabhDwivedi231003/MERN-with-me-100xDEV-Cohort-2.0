@@ -1,33 +1,57 @@
-import {BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
-import React, { Suspense } from 'react';
-import './App.css'
+import {useContext, useState} from 'react';
+import './App.css';
+import { CountContext } from './context';
 
-/*Lazy Loading*/
-const Landing = React.lazy(()=> import('./components/Landing.jsx'));  
-const Home = React.lazy(()=> import('./components/Home.jsx'));  
+/* Check notes and code below to know how it looked before using contextAPI*/
+  
+/*    Hierarchy of components
+      --> APP
+          --> Count
+             -> Buttons
+             -> CountRenrenderer
+
+    Store state variable at LCA : Lowest common ancestors 
+*/ 
 
 function App() {  
+  const [count , setCount] = useState(0);
+  /* Wrap anyone that wants to use the teleport value isnside a provider. */
   return (
-    <BrowserRouter>
-      <Navigation />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/home" element={<Home/>} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <>
+      <CountContext.Provider value={{count , setCount}}>
+        <Count/>
+      </CountContext.Provider>
+    </>
+  )
+}
+/* Hum chahte hain count k andar hi button ho toh initial count ko sirf 'count' as a prop chahiye , but Buttons component ki wjh se 'setCount' bhi chahiye ab */
+// This is Prop Drilling
+
+function Count() {
+  return(
+    <>
+      <Buttons/>
+      <CountRerenderer/>
+    </>
   )
 }
 
-function Navigation() {
-  const navigate = useNavigate();
+function CountRerenderer(){
+  const {count} = useContext(CountContext);
   return (
-    <div>
-      <button onClick={()=>{ navigate("/home") }}>Home</button>
-      <button onClick={()=>{ navigate("/") }}>Landing</button>
-    </div>
+    <>
+      <h1>{count}</h1>
+    </>
   )
 }
 
-export default App
+function Buttons(){
+  const {count , setCount} = useContext(CountContext);
+  return(
+    <>
+      <button onClick={()=>{ setCount(count+1) }}>Increase</button>
+      <button onClick={()=>{ setCount(count-1) }}>Decrease</button>
+    </>
+  )
+}
+export default App;
