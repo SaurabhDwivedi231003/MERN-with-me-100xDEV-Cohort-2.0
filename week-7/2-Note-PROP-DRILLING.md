@@ -1,5 +1,3 @@
-Sure, here's how you can convert the provided information into Markdown format for a `Notes.md` file:
-
 ```markdown
 # Prop Drilling
 
@@ -41,5 +39,3 @@ Prop Drilling dosen't mean that parent re-render children , it just mean the syn
 
 Remember, prop drilling isn't always bad. For smaller applications or components, it might be simpler to just pass props. But for larger applications, you might want to consider alternatives.
 ```
-
-Just copy and paste this into your `Notes.md` file.
