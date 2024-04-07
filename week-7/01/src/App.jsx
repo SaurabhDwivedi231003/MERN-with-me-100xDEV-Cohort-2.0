@@ -16,6 +16,7 @@ import { CountContext } from './context';
 function App() {  
   const [count , setCount] = useState(0);
   /* Wrap anyone that wants to use the teleport value isnside a provider. */
+  /*Also store all this default stuff in "contex.jsx" file*/
   return (
     <>
       <CountContext.Provider value={{count , setCount}}>
@@ -25,7 +26,7 @@ function App() {
   )
 }
 /* Hum chahte hain count k andar hi button ho toh initial count ko sirf 'count' as a prop chahiye , but Buttons component ki wjh se 'setCount' bhi chahiye ab */
-// This is Prop Drilling
+// This is Prop Drilling , to avoid this we use ContextAPI
 
 function Count() {
   return(
