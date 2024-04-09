@@ -26,3 +26,4 @@ Sure, here are the notes in a more structured and represented way:
 - **useRecoilValue**: It's a hook that returns the current value of the Recoil state (atom), similar to `count` in the Context API.
 - **useSetRecoilState**: It's a hook that returns a setter function for the Recoil state (atom), similar to `setCount` in the Context API.
 - **selector**: It's a pure function that accepts atoms or other selectors as input. Selectors are used to calculate derived data based on the state.
+- [Notes 1: Route Lazy Loading](https://recoiljs.org/docs/basic-tutorial/selectors)

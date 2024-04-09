@@ -1,8 +1,10 @@
-import { RecoilRoot,useRecoilState, useRecoilValue } from 'recoil';
+import { RecoilRoot,useRecoilState, useRecoilValue,useSetRecoilState } from 'recoil';
 import './App.css';
-import { countAtom } from './store/atoms/count';
+import { countAtom, isEvenSelector } from './store/atoms/count';
+import { useMemo } from 'react';
 
-/*Even though Count component is not involved while using Context API , The count component re-render again and again which needes to be optimised.*/
+/* SELECTORS  */
+/* If you know something is derived from bunch of dependency use ,'SELECTORS',just like we use useMemo() , both do same thing to avoid rerendering */
 
 function App() {  
   return (
@@ -21,27 +23,62 @@ function Count() {
     </>
   )
 }
-/* Above component should have nothing to do with our count state as they are not using but re-rendering themselves which is not needed.
-/* Below component will have access to state directly. */
 
 function CountRerenderer(){
-  /* It just need value */
+  console.log("CountRerenderer component Rerendered. ")
   const count = useRecoilValue(countAtom); 
-  /* If we need both than */
-  // const [count, setCount] = useRecoilState(countAtom);  // We can always use this and ignore other setCount as not needed , BUT , if we dont need other varibale we should use single varible as that is more performant.
+ 
+  return (
+    <div>
+      <h1>{count}</h1> <br />
+      <EvenCountRerenderer/>
+    </div>
+  )
+}
+/* USING SELECTOR*/
+function EvenCountRerenderer(){
+  const count = useRecoilValue(countAtom); 
+  const isEven = useRecoilValue(isEvenSelector);
   return (
     <>
-      <h1>{count}</h1>
-    </>
+    {isEven && <div>EVEN</div>}
+  </>
   )
 }
 
+/* USING useMemo*/
+// function EvenCountRerenderer(){
+//   const count = useRecoilValue(countAtom); 
+//   const isEven = useMemo(() =>{
+//     return count % 2 == 0
+//   } , [count]);    /* Will only rerender when count changes. */
+ 
+//   return (
+//     <>
+//       {isEven && <div> EVEN </div>}
+//     </>
+//   )
+// }
+
 function Buttons(){
-  const [count, setCount] = useRecoilState(countAtom);
+  // const [count, setCount] = useRecoilState(countAtom);
+  /* If we carefully observe , we are not really using 'Count' outside the setCount , so why to have it ? */
+  
+  /*
+  Other two way of setCount we know :
+  1. setCount(count => count + 1);
+  2. setCount(function(count){ count = count +1; })
+  
+  these way do not require count externally.
+  */
+  console.log("Button component Rerendered. ")
+  const setCount = useSetRecoilState(countAtom);
+  /* After this optimization , Button component will not rerender again and again on clicking thr button */
+
   return(
     <>
-      <button onClick={()=>{ setCount(count+1) }}>Increase</button>
-      <button onClick={()=>{ setCount(count-1) }}>Decrease</button>
+      <button onClick={()=>{ setCount(count => count + 1) }}>Increase</button>
+      <button onClick={()=>{ setCount(count => count - 1) }}>Decrease</button>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom , selector} from 'recoil';
 
 /* Define an atom */
 
@@ -10,9 +10,30 @@ export const countAtom = atom({
 
 //  useRecoilState  == useState 
 //  useRecoilValue  == count 
-//  useRecoilSetState == setCount 
+//  useSetRecoilState == setCount 
 /*
     <RecoilRoot>    ==   <CountContextProvider>
       <Count/>  
     </RecoilRoot>   ==   <CountContextProvider>
+*/
+
+/* This depends on countAtom. */
+export const isEvenSelector = selector({
+  key: 'isEvenSelector',
+  get: ({get}) => {
+    const count = get(countAtom);  // depends on countAtom state
+    return count % 2 === 0;
+  }
+});
+
+/*
+
+    const count = get(countAtom);   depends on 'countAtom'
+  
+    this is similar to : 
+
+    useMemo(()=>{
+
+    }, [count])
+
 */
