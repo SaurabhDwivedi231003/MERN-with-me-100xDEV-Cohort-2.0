@@ -41,9 +41,5 @@
    }
    }
    ```
-
-<<<<<<< HEAD
 7. **When to Use Context API**: Use the Context API when some data needs to be accessible by many components at different nesting levels. If you only want to avoid passing some props through many levels, component composition is often a simpler solution than context.
-=======
 7. **When to Use Context API**: Use the Context API when some data needs to be accessible by many components at different nesting levels. If you only want to avoid passing some props through many levels, component composition is often a simpler solution than context.
->>>>>>> e066f661d01e2baf151337acb6900dfe9a318449
