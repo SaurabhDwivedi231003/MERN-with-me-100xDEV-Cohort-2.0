@@ -11,13 +11,15 @@ Welcome to my 100xDEV Challenge repository! 🚀 This repository documents my jo
 
 - **Frontend:**
   - ReactJS - A JavaScript library for building user interfaces
-  - (Add any additional frontend technologies)
+  - Tailwind CSS
+  - REDUX
+  - RECOIL
 
 - **Backend:**
   - Node.js - JavaScript runtime for server-side development
   - Express.js - Fast, unopinionated, minimalist web framework for Node.js
   - MongoDB - NoSQL database for storing application data
-  - (Add any additional backend technologies)
+  - ZOD
 
 - **DevOps:**
   - Docker - Containerization for seamless deployment
@@ -42,6 +44,13 @@ npm install
 
 # Run the project
 npm start
+```
+## Notes
+
+- [Notes 1: Route Lazy Loading](https://github.com/SaurabhDwivedi231003/MERN-with-me-100xDEV-/blob/master/week-7/1-Notes-ROUTE-LAZY-Loading.md)
+- [Notes 2: Prop Drilling](https://github.com/SaurabhDwivedi231003/MERN-with-me-100xDEV-/blob/master/week-7/2-Note-PROP-DRILLING.md)
+- [Notes 3: Context API](https://github.com/SaurabhDwivedi231003/MERN-with-me-100xDEV-/blob/master/week-7/3-Notes-CONTEXT-API.md)
+- [Notes 4: State Management Recoil](https://github.com/SaurabhDwivedi231003/MERN-with-me-100xDEV-/blob/master/week-7/4-Notes-State-Management-RECOIL.md)
 
 ## Notes
 

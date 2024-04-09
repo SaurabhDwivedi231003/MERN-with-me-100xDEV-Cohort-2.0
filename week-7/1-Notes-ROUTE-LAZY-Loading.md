@@ -1,5 +1,5 @@
-# Routing in React 
 
+# Routing in React 
 This document provides an overview of routing in React, including key concepts and code examples.
 
 ## Key Concepts
@@ -41,4 +41,8 @@ return (
 
 - Using `window.location.href` to navigate between pages is not recommended because it causes the page to reload.
 
+<<<<<<< HEAD
 - The `useNavigate()` hook provided by `react-router-dom` is the recommended way to programmatically navigate between routes.
+=======
+- The `useNavigate()` hook provided by `react-router-dom` is the recommended way to programmatically navigate between routes.
+>>>>>>> e066f661d01e2baf151337acb6900dfe9a318449
