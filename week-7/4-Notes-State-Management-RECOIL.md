@@ -16,6 +16,8 @@
    - Atoms can be teleported to any component.
    - Performance: Recoil allows components to subscribe to individual pieces of state (atoms), which can lead to more efficient re-renders than Redux. If you have a large state tree and you're noticing performance issues with Redux, Recoil might be a better choice.
 
+   - If we want to switch from Recoil to Redux in future than we can do it by simply changing code in store/recoil folder and entire app will not be affected.
+   - Also React state management library like Recoil & Redux help us to keep ou state management code private & unexposed from other user.
 ## Things to learn in Recoil
 
 - **RecoilRoot**: It's a component that provides a Recoil context to its descendants. It's similar to the `<CountContext.Provider>` in Context API.
@@ -24,4 +26,4 @@
 - **useRecoilValue**: It's a hook that returns the current value of the Recoil state (atom), similar to `count` in the Context API.
 - **useSetRecoilState**: It's a hook that returns a setter function for the Recoil state (atom), similar to `setCount` in the Context API.
 - **selector**: It's a pure function that accepts atoms or other selectors as input. Selectors are used to calculate derived data based on the state.
-- [Notes 1: Route Lazy Loading](https://recoiljs.org/docs/basic-tutorial/selectors)
+- [LINK : RECOIL ](https://recoiljs.org/docs/basic-tutorial/selectors)

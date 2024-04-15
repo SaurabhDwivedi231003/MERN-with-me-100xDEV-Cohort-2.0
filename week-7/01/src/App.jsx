@@ -7,16 +7,17 @@ import { CountContext } from './context';
 /*    Hierarchy of components
       --> APP
           --> Count
-             -> Buttons
-             -> CountRenrenderer
+              -> Buttons
+             
+              -> CountRenrenderer
 
     Store state variable at LCA : Lowest common ancestors 
 */ 
 
 function App() {  
   const [count , setCount] = useState(0);
-  /* Wrap anyone that wants to use the teleport value isnside a provider. */
-  /*Also store all this default stuff in "contex.jsx" file*/
+  /* Wrap anyone that wants to use the teleport value inside a provider. */
+  /*Also store all this default stuff in "context.jsx" file*/
   return (
     <>
       <CountContext.Provider value={{count , setCount}}>
