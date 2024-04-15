@@ -1,5 +1,7 @@
 import { atom, selector } from 'recoil';
 
+// Asynchronous data queries 
+
 export const networkAtom = atom({
     key : 'networkAtom',
     default :104 
