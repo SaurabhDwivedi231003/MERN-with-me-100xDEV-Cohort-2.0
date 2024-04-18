@@ -5,6 +5,8 @@ import { notifications, totalNotificationSelector } from './atoms'
 import { useEffect } from 'react'
 import axios from 'axios'
 
+// 49 : 00
+
 function App() {
   return <RecoilRoot>
     <MainApp />

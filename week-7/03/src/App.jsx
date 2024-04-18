@@ -44,4 +44,4 @@ const  notificationsTotalCount = useRecoilValue(notificationsSelector);
   );
 }
 
-export default App;
+export default App;   
