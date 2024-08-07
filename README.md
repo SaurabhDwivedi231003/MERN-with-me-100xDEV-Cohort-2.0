@@ -118,6 +118,7 @@ npm start
 - [Notes 2: Prop Drilling](https://github.com/SaurabhDwivedi231003/MERN-with-me-100xDEV-/blob/master/week-7/2-Note-PROP-DRILLING.md)
 - [Notes 3: Context API](https://github.com/SaurabhDwivedi231003/MERN-with-me-100xDEV-/blob/master/week-7/3-Notes-CONTEXT-API.md)
 - [Notes 4: State Management Recoil](https://github.com/SaurabhDwivedi231003/MERN-with-me-100xDEV-/blob/master/week-7/4-Notes-State-Management-RECOIL.md)
+<<<<<<< HEAD
 
 
 # ReactJS
@@ -8159,3 +8160,5 @@ Good luck with your interview 😊
 
 ---
 
+=======
+>>>>>>> week-10

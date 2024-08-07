@@ -30,10 +30,27 @@ async function createEntries(name: string ,email: string , password: string) {
 // createUserTable();
 // createEntries();
 
+<<<<<<< HEAD
 async function main() {
     try {
         await createUserTable();
         await createEntries("saurabh" ,"saurabh@gmail.com", "123456");
+=======
+async function findEntry(){
+    try {
+        const result = await client.query("SELECT * FROM users;");
+        console.log("Entry found successfully.", result.rows);
+    } catch (err) {
+        console.error("Error during finding", err);
+    }
+}
+
+async function main() {
+    try {
+        await createUserTable();
+        await createEntries("saurabh2" ,"saurabh2@gmail.com", "123456");
+        await findEntry();
+>>>>>>> week-10
     } catch (error) {
         console.error("An error occurred:", error);
     }
