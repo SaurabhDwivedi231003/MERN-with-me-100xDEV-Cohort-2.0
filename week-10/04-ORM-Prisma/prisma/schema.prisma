@@ -8,11 +8,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
+// datasource db {
+//   provider = "postgresql"
+// }
+// I  made changes above because of github policy do add url for database before proceeding.
 
 model User {
   id         Int      @id @default(autoincrement())
