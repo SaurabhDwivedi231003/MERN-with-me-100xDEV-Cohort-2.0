@@ -1,0 +1,46 @@
+# prod
+dist/
+
+# dev
+.yarn/
+!.yarn/releases
+.vscode/*
+!.vscode/launch.json
+!.vscode/*.code-snippets
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf
+
+# deps
+node_modules/
+.wrangler
+
+# env
+.env
+.env.production
+.dev.vars
+
+# logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# misc
+.DS_Store
+
+# supabase
+# postgresql://postgres.premciojazseqhewuvrk:2310_SQL_2310@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres
+
+# neon
+# postgresql://database1_owner:SsT35crFmPJY@ep-purple-unit-a13bp6j6.ap-southeast-1.aws.neon.tech/database1?sslmode=require
+
+node_modules
+
+# [vars]   use thes in wrangler.toml
+# DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiOWQ4N2Y3ZjktYTUzOC00N2JiLWEzM2YtZTE0NDQ5NjEwM2NmIiwidGVuYW50X2lkIjoiYjYyYTRmY2Q3NWMyODI1YTVlMzMxOWUwYzBjOGNiNjlmOGVhYjk5YTdlN2E1YmYwZDU0MWIyZWM1YzVkMGNkNiIsImludGVybmFsX3NlY3JldCI6ImJiNzZiYTdhLTdjZDUtNGNhYy05Mjk0LThlMjcyMzE0YmE3MyJ9.NkaEVQQvoneUHk-Vl470JqRppy98Z7pRzLgbORQu2tg"
+
+# JWT_SECRET="fnawifnawbiu2919fsf4286"

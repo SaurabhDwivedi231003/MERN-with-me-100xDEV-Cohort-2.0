@@ -10,14 +10,8 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-<<<<<<< HEAD
   url      = ""
 }
-=======
-  url      = "postgres://avnadmin:AVNS_koVrN1KiCypkCE78TGN@postgrelearningnow-1-postgrelearning-1.c.aivencloud.com:12898/defaultdb?sslmode=require"
-}
-
->>>>>>> week-10
 model User{
   id Int @id @default(autoincrement())
   email String @unique
@@ -34,9 +28,3 @@ model Todo{
   userId Int
 }
 
-<<<<<<< HEAD
-=======
-// postgres://avnadmin:AVNS_koVrN1KiCypkCE78TGN@postgrelearningnow-1-postgrelearning-1.c.aivencloud.com:12898/defaultdb?sslmode=require
-
-// postgresql://postgres.jcxsjhjlwuwivprsxtjh:2310_SQL_2310@aws-0-ap-south-1.pooler.supabase.com:6543/postgres
->>>>>>> week-10
