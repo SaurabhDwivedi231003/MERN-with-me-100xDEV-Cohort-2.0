@@ -91,13 +91,23 @@ blogRouter.put('/', async (c) => {
 })
 
 // For Bulk Posts
-// do pagination here : like filter which blog you want ( searching kinfd of thing)
+// do pagination here : like filter which blog you want ( searching kind of thing)
 blogRouter.get('/bulk',async (c) => {
     const prisma = new PrismaClient({
         datasourceUrl: c.env?.DATABASE_URL
     }).$extends(withAccelerate());
 
-    const blogs =await prisma.post.findMany();
+    const blogs =await prisma.post.findMany({
+        select: {
+            id: true,
+            title: true,
+            content: true,
+            author: {
+                select : { name : true}
+            }
+        }
+    });
+
     return c.json({blogs})
 
 })
@@ -114,6 +124,14 @@ blogRouter.get('/bulk',async (c) => {
         const blog = await prisma.post.findFirst({
                 where: {
                     id: id
+                },
+                select: {
+                    id : true,
+                    title: true,
+                    content: true,
+                    author : {
+                        select : { name : true}
+                    }
                 }
             })
         return c.json({blog})

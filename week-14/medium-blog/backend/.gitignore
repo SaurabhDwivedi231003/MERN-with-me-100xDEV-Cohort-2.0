@@ -43,9 +43,10 @@ node_modules
 # [vars]   use thes in wrangler.toml
 
 # connection pooling string
-# DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiOWQ4N2Y3ZjktYTUzOC00N2JiLWEzM2YtZTE0NDQ5NjEwM2NmIiwidGVuYW50X2lkIjoiYjYyYTRmY2Q3NWMyODI1YTVlMzMxOWUwYzBjOGNiNjlmOGVhYjk5YTdlN2E1YmYwZDU0MWIyZWM1YzVkMGNkNiIsImludGVybmFsX3NlY3JldCI6ImJiNzZiYTdhLTdjZDUtNGNhYy05Mjk0LThlMjcyMzE0YmE3MyJ9.NkaEVQQvoneUHk-Vl470JqRppy98Z7pRzLgbORQu2tg"
-
-#   Prisma url
-# DATABASE_URL = "postgres://avnadmin:AVNS_koVrN1KiCypkCE78TGN@postgrelearningnow-1-postgrelearning-1.c.aivencloud.com:12898/defaultdb?sslmode=require'"
+# DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiNmU1ODRlOGYtMTg1MC00ZGE4LThhZmYtYjliMDU0MWFlZDNhIiwidGVuYW50X2lkIjoiYjYyYTRmY2Q3NWMyODI1YTVlMzMxOWUwYzBjOGNiNjlmOGVhYjk5YTdlN2E1YmYwZDU0MWIyZWM1YzVkMGNkNiIsImludGVybmFsX3NlY3JldCI6ImJiNzZiYTdhLTdjZDUtNGNhYy05Mjk0LThlMjcyMzE0YmE3MyJ9.vZSV0YtkH8TkgmoQQ9RTp7-2yu8DNlEH7MLAuy0kBnA" 
 
 # JWT_SECRET="fnawifnawbiu2919fsf4286"
+
+#   Prisma database url
+# DATABASE_URL = "postgres://avnadmin:AVNS_koVrN1KiCypkCE78TGN@postgrelearningnow-1-postgrelearning-1.c.aivencloud.com:12898/defaultdb?sslmode=require'"
+
